@@ -1,0 +1,240 @@
+<html lang="en">
+<head>
+<style>
+
+/*Style the header*/
+.header {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 40px;
+}
+
+/*Style the top navigation bar*/
+.topnav {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 16px 18px;
+  text-decoration: none;
+}
+
+/* Creating 3 columns that float next to each other*/
+.column {
+  float: left;
+  width: 50%;
+}
+
+/*Clear the floats after the columns*/
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive things for viewing on a mobile device*/
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Shepherd</title>
+</head>
+
+<body style="background-color: beige;">
+    
+    <div class="header">
+        <h10>RSA Project</h10>
+    </div>
+    <p style="font-size: 25px; text-align: center;">By Kyle Shepherd</p>
+
+    <div class="topnav">
+        <a href="#C1">What is RSA?</a>
+        <a href="#C2">Encryption</a>
+        <a href="#C3">Decryption</a>
+        <a href="#C4">Relevance</a>
+        <a href="#C5">Sources</a>
+    </div>
+    
+    <h1 id="C1" style="font-size: 30px; border-bottom-style: solid;" >What is RSA?</h1>
+    <div class="column">
+        <p style="font-size: 20px; margin-bottom: 20px;">RSA, standing for Rivest–Shamir–Adleman, serves as a foundational public-key cryptosystem, renowned for its role 
+            in securing data transmission. Developed in 1977 by Ron Rivest, Adi Shamir, and Leonard Adleman, RSA operates on the principle of using a 
+            pair of keys – one public and one private – for encryption and decryption.
+        </p>
+       
+        <p style="font-size: 20px; margin-bottom: 20px;">In this system, users generate and share a public key, derived from two large prime numbers and an auxiliary value, 
+            while keeping the prime numbers private. Messages are encrypted using the public key, but decryption can only occur with the corresponding 
+            private key.
+        </p>
+        
+        <p style="font-size: 20px; margin-bottom: 20px;">The security of RSA rests upon the challenge of factoring the product of two large primes, known as the 
+            "factoring problem". Breaking RSA encryption, referred to as the RSA problem, remains a formidable task due to this difficulty. Notably,
+            RSA encryption remains unyielding against attacks when implemented with sufficiently large key sizes.
+        </p>
+        
+        <p style="font-size: 20px; margin-bottom: 20px;">Though RSA encryption is relatively slow, it finds extensive use in facilitating secure communication by transmitting 
+            shared keys for symmetric-key cryptography. These shared keys are then utilized for efficient bulk encryption and decryption processes.
+        </p>
+    </div>
+
+    <div class="column">
+      <img src="RSA.svg" alt="Forest" height="825" width="550"></img>
+      <p> </p>
+      <a href="https://nordvpn.com/blog/rsa-encryption/">Image Link</a>
+    </div>
+    <div class="row"></div>
+  
+
+
+
+    <h2 id="C2" style="font-size: 30px; border-bottom-style: solid;">Encryption</h2>
+    <div class="column">
+      <p style="font-size: 20px; margin-bottom: 20px;">RSA encryption is a fundamental technique in modern cryptography, renowned for its robust security and reliance on mathematical
+         principles. The process of RSA encryption involves several key steps, each contributing to the secure transformation of plaintext into ciphertext.
+        </p>
+     
+      <h style="font-size: 20px; font-weight: bold;">1. Key Generation:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">Before encryption can occur, a pair of keys must be generated – a public key and a private key. These keys are mathematically related
+         but are kept distinct to uphold the security of the system. The public key is shared openly, while the private key is kept confidential. Key generation begins by selecting two large
+         prime numbers, typically denoted as p and q. These primes are multiplied together to produce the modulus n = pq, a crucial component of both keys.
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">2. Euler's Totient Function:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">After determining the modulus n, the next step involves computing Euler's totient function ϕ(n), which represents the count of integers 
+        less than n that are coprime to n. Euler's totient function for an RSA modulus is calculated as ϕ(n)=(p−1)(q−1).
+      </p>
+      
+      <h style="font-size: 20px; font-weight: bold;">3. Public Key Formation:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">With the modulus n and Euler's totient function ϕ(n) established, the public key is constructed. This key consists of the modulus 
+        n and an exponent e that is relatively prime to ϕ(n). Common choices for e include small prime numbers or specific values like 65537. The public key is typically represented as (n,e)
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">4. Private Key Calculations</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">The private key is computed using the modular multiplicative inverse of e modulo ϕ(n). This inverse, denoted as d, satisfies the equation 
+        ed≡1(modϕ(n)). The private key is then represented as (n,d).
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">5. Encryption</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">To encrypt a message M, which is typically represented as a numerical value, the sender utilizes the recipient's public key 
+        (n,e). The encryption process involves raising M to the power of e modulo n, resulting in the ciphertext C. Mathematically, this operation can be expressed as C≡M<sup>e</sup>(modn).
+      </p>
+    </div>
+
+    <div class="column">
+      <img src="RSAEncryption.png" alt="Encryption" height="350" width="525"></img>
+      <p> </p>
+      <a href="https://hackernoon.com/how-does-rsa-work-f44918df914b">Image Link</a>
+      <p> </p>
+    </div>
+    <div class="row"></div>
+
+
+    <h3 id="C3" style="font-size: 30px; border-bottom-style: solid;">Decryption</h3>
+    <div class="column">
+      <p style="font-size: 20px; margin-bottom: 20px;"> The RSA decryption process involves the recipient using their private key to recover the original message from the ciphertext. This is 
+        achieved by performing modular exponentiation, raising the ciphertext to the power of the private exponent modulo the modulus. The result is the original plaintext message, providing 
+        confidentiality and integrity in secure communication. In the proof on the right we can see the correctness of RSA and some of the different theorems behind it's computations.
+      </p>
+      
+      <h style="font-size: 20px; font-weight: bold;">1. Ciphertext Reception:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">The recipient receives the ciphertext c sent by the sender. This ciphertext is the result of the encryption process performed using the 
+        sender's public key.
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">2. Euler's Totient Function:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">The recipient uses their private key, which consists of the private exponent d and the modulus n, to decrypt the ciphertext and recover 
+        the original message.
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">3. Decryption Algorithm:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">The decryption algorithm involves raising the ciphertext c to the power of the private exponent d modulo n. Mathematically, this can 
+        be represented as:m≡c<sup>d</sup>(modn).
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">4. Modular Exponentiation:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">The core operation in RSA decryption is modular exponentiation. This operation efficiently computes the remainder when a number is 
+        raised to a power modulo another number. In this case, the ciphertext c is raised to the power of d modulo n to recover the original message m.
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">5. Recovery of Original Message:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">After performing modular exponentiation, the recipient obtains the original message m, which was encrypted by the sender using RSA 
+        encryption. This message can now be used by the recipient for further processing or analysis.
+      </p>
+
+      <h style="font-size: 20px; font-weight: bold;">6. Verification of Integrity:</h>
+      <p style="font-size: 20px; margin-bottom: 20px;">RSA decryption not only provides confidentiality by ensuring that only the intended recipient can recover the original message but 
+        also verifies the integrity of the message. If the decrypted message matches the expected format or content, it confirms that the ciphertext has not been tampered with during transmission.
+      </p>
+    </div>
+
+    <div class = "column">
+      <img src="RSA Proof.png" alt="Proof" height="285" width="575"></img>
+    </div>
+    <div class="row"></div>
+
+
+
+    <h4 id="C4" style="font-size: 30px; border-bottom-style: solid;" >Relevance</h4>
+    <div class="column">
+      <p style="font-size: 20px; margin-bottom: 20px;">RSA's significance in security lies in its capability to establish secure communication channels over untrusted networks by encrypting data 
+        and validating communication participants. Its relevance extends to various applications, including SSL/TLS for web traffic security, SSH for remote access, and PGP for email communication. 
+        Additionally, RSA facilitates secure digital signatures, ensuring message integrity and authenticity in electronic transactions, and supports secure key exchange for symmetric encryption without 
+        pre-shared keys.
+      </p>
+     
+      <p style="font-size: 20px; margin-bottom: 20px;">RSA's security is contingent upon the difficulty of factoring large prime numbers, the foundation of RSA's public-key mechanism. The duration required 
+        to break RSA encryption relies on the size of the key employed. Despite advancements, breaking RSA encryption through brute force or factoring large numbers remains unfeasible for sufficiently large 
+        key sizes. For instance, while a 1024-bit RSA key was once deemed secure, current recommendations advocate for starting at 2048-bit keys for moderate security, with 3072 or 4096 bits for higher security 
+        needs. Breaking RSA encryption beyond 2048 bits using present technology and algorithms would necessitate an impractical amount of computational resources and time, potentially spanning decades or even 
+        centuries. Thus, RSA maintains its relevance in security, but periodic adjustments to key sizes may be essential to uphold its efficacy against evolving computational capabilities.
+      </p>
+
+      <p style="font-size: 20px; margin-bottom: 20px;">Prime factorization is the process of decomposing a composite number into its prime factors. For instance, taking the number 84 as an example, its prime 
+        factorization yields 2^2 * 3 * 7, where 2, 3, and 7 are prime numbers. The computational complexity of prime factorization algorithms, such as trial division or Pollard's rho algorithm, is commonly 
+        expressed using Big O notation. Typically, this complexity is denoted as O(√n), where n represents the number being factored. This notation signifies that the time required to factor a number increases 
+        proportionally with the square root of that number. Consequently, as the size of the number to be factored grows, the computational effort required for prime factorization escalates exponentially. For 
+        larger numbers, this computational burden becomes formidable, rendering it impractical to efficiently factorize them. This exponential rise in computational complexity underpins the security of cryptographic 
+        systems like RSA, which rely on the challenge of prime factorization for their robustness. Thus, prime factorization presents a daunting computational problem, with its complexity escalating swiftly as the 
+        size of the number to be factored increases. The graphs to the right show how even though there is a significant time difference between the worst and average case, both of the cases are still exponential and
+        cause major problems when increasing bit sizes up to 1024, which is how many bits RSA uses.
+      </p>
+    </div>
+
+    <div class="column">
+      <img src="Worst Case.png" alt="Proof" height="250" width="600"></img>
+      <p> </p>
+      <img src="TypicalCase1.png" alt="Proof" height="250" width="600"></img>
+      <p> </p>
+      <img src="TypicalCase.png" alt="Proof" height="250" width="600"></img>
+      <p> </p>
+      <a href="https://nestedsoftware.com/2018/12/18/big-o-prime-factors-and-pseudo-polynomial-time-55cp.69665.html">Prime Factorization article</a>
+    </div>
+    <div class="row"></div>
+
+
+
+    <h5 id="C5" style="font-size: 30px; border-bottom-style: solid;" >Sources</h5>
+    <a href="https://brilliant.org/wiki/rsa-encryption/">'Brilliant' article</a>
+    <p> </p>
+    <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia article</a>
+    <p> </p>
+    <a href="https://www.w3schools.com/html/default.asp">Website to learn HTML and CSS</a>
+    <p> </p>
+    <p>Chat GPT used for asistance in summarization</p>
+    <p> </p>
+    <p>Dr. Devarakonda's slides used for proof and understanding</p>
+
+</body>
+</html>
